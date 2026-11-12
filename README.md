@@ -12,3 +12,6 @@ Autor: Tomás Avendaño Parra
 ## punto2/ - Consulta de entregas con Athena y partition projection (Terraform)
 
 Sigue la estructura del enunciado. Su README.md tiene las instrucciones reproducibles.
+
+## hilo de conversación IA
+https://claude.ai/share/126c8ead-388e-47ed-b478-0f3bc0bb1939
