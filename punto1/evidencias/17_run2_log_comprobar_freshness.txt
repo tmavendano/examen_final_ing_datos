@@ -1,0 +1,37 @@
+Log de Airflow - examen_ventas / comprobar_freshness
+run_id = manual__2026-11-12T11:42:56.941458+00:00
+
+f67d1adf2095
+ ▶ Log message source details
+[2026-11-12, 11:43:02 UTC] {local_task_job_runner.py:123} ▶ Pre task execution logs
+[2026-11-12, 11:43:03 UTC] {logging_mixin.py:190} INFO - INICIO dbt ['source', 'freshness']
+[2026-11-12, 11:43:09 UTC] {taskinstance.py:3313} ERROR - Task failed with exception
+Traceback (most recent call last):
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 768, in _execute_task
+    result = _execute_callable(context=context, **execute_callable_kwargs)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/taskinstance.py", line 734, in _execute_callable
+    return ExecutionCallableRunner(
+           ^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/models/baseoperator.py", line 424, in wrapper
+    return func(self, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 238, in execute
+    return_value = self.execute_callable()
+                   ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/operators/python.py", line 256, in execute_callable
+    return runner.run(*self.op_args, **self.op_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/home/airflow/.local/lib/python3.11/site-packages/airflow/utils/operator_helpers.py", line 252, in run
+    return self.func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/workspace/scripts/runtime.py", line 20, in run_dbt
+    subprocess.run(["/opt/dbt/bin/dbt", *arguments, "--project-dir", "/workspace/dbt",
+  File "/usr/local/lib/python3.11/subprocess.py", line 571, in run
+    raise CalledProcessError(retcode, process.args,
+subprocess.CalledProcessError: Command '['/opt/dbt/bin/dbt', 'source', 'freshness', '--project-dir', '/workspace/dbt', '--profiles-dir', '/workspace/dbt']' returned non-zero exit status 1.
+[2026-11-12, 11:43:09 UTC] {taskinstance.py:1226} INFO - Marking task as FAILED. dag_id=examen_ventas, task_id=comprobar_freshness, run_id=manual__2026-11-12T11:42:56.941458+00:00, execution_date=20261112T114256, start_date=20261112T114302, end_date=20261112T114309
+[2026-11-12, 11:43:09 UTC] {taskinstance.py:341} ▶ Post task execution logs

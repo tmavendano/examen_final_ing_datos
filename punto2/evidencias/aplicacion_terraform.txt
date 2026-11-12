@@ -1,0 +1,49 @@
+aws_glue_catalog_database.entregas: Refreshing state... [id=397781772612:entregas_db]
+aws_s3_bucket.datos: Refreshing state... [id=de-final-entregas-tomas-20261112]
+aws_s3_bucket_public_access_block.datos: Refreshing state... [id=de-final-entregas-tomas-20261112]
+aws_glue_catalog_table.entregas: Refreshing state... [id=397781772612:entregas_db:entregas]
+
+Terraform used the selected providers to generate the following execution
+plan. Resource actions are indicated with the following symbols:
+  + create
+
+Terraform will perform the following actions:
+
+  # aws_athena_workgroup.entregas will be created
+  + resource "aws_athena_workgroup" "entregas" {
+      + arn           = (known after apply)
+      + force_destroy = true
+      + id            = (known after apply)
+      + name          = "entregas_wg"
+      + state         = "ENABLED"
+      + tags_all      = (known after apply)
+
+      + configuration {
+          + enforce_workgroup_configuration    = true
+          + publish_cloudwatch_metrics_enabled = true
+          + requester_pays_enabled             = false
+
+          + result_configuration {
+              + output_location = "s3://de-final-entregas-tomas-20261112/resultados-athena/"
+            }
+        }
+    }
+
+Plan: 1 to add, 0 to change, 0 to destroy.
+aws_athena_workgroup.entregas: Creating...
+aws_athena_workgroup.entregas: Creation complete after 1s [id=entregas_wg]
+
+Apply complete! Resources: 1 added, 0 changed, 0 destroyed.
+
+Outputs:
+
+base_datos_glue = "entregas_db"
+bucket = "de-final-entregas-tomas-20261112"
+tabla_glue = "entregas"
+ubicacion_resultados_athena = "s3://de-final-entregas-tomas-20261112/resultados-athena/"
+workgroup_athena = "entregas_wg"
+aws_athena_workgroup.entregas
+aws_glue_catalog_database.entregas
+aws_glue_catalog_table.entregas
+aws_s3_bucket.datos
+aws_s3_bucket_public_access_block.datos

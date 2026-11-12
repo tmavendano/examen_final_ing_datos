@@ -1,0 +1,27 @@
+{
+  "base_datos_glue": {
+    "sensitive": false,
+    "type": "string",
+    "value": "entregas_db"
+  },
+  "bucket": {
+    "sensitive": false,
+    "type": "string",
+    "value": "de-final-entregas-tomas-20261112"
+  },
+  "tabla_glue": {
+    "sensitive": false,
+    "type": "string",
+    "value": "entregas"
+  },
+  "ubicacion_resultados_athena": {
+    "sensitive": false,
+    "type": "string",
+    "value": "s3://de-final-entregas-tomas-20261112/resultados-athena/"
+  },
+  "workgroup_athena": {
+    "sensitive": false,
+    "type": "string",
+    "value": "entregas_wg"
+  }
+}
